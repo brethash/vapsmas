@@ -1,0 +1,3 @@
+---
+- name: modman deploy
+  command: "chdir={{ document_root }}/.modman modman deploy-all"

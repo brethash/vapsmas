@@ -1,0 +1,17 @@
+---
+- name: Install Git
+  apt: name=git state=present
+
+- name: Create the SSH public key file
+  copy: src={{ git_public_key }}
+        dest="/home/vagrant/.ssh/id_rsa.pub"
+        mode=0644
+        owner=vagrant
+        group=vagrant
+
+- name: Create the SSH private key file
+  copy: src={{ git_private_key }}
+        dest="/home/vagrant/.ssh/id_rsa"
+        mode=0600
+        owner=vagrant
+        group=vagrant

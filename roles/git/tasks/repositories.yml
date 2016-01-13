@@ -1,0 +1,43 @@
+---
+- name: Create magento directory
+  file: 
+    path: "{{ document_root }}"
+    owner: vagrant
+    group: vagrant
+    state: directory
+
+- name: Clone Latest Magento CE release
+  sudo: no
+  git: repo=https://github.com/speedupmate/Magento-CE-Mirror.git
+       dest="{{ document_root }}"
+       accept_hostkey=yes
+       force=yes
+       recursive=no
+       key_file="/home/vagrant/.ssh/id_rsa"
+
+- name: Create .modman directory
+  file: 
+    path: "{{ module_root }}"
+    owner: vagrant
+    group: vagrant
+    state: directory
+
+- name: Create repository destination directories for cloning
+  file: 
+    path: "{{ item.value.dest }}"
+    owner: vagrant
+    group: vagrant
+    state: directory
+  with_dict: git_repositories
+
+- name: Cloning Repositories
+  sudo: no
+  git: repo="{{ item.value.url }}"
+       dest="{{ item.value.dest }}"
+       accept_hostkey=yes
+       force=yes
+       recursive=no
+       key_file="/home/vagrant/.ssh/id_rsa"
+  notify:
+    - modman deploy
+  with_dict: git_repositories

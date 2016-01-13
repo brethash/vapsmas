@@ -1,0 +1,6 @@
+---
+- name: Install Mysql
+  apt: name=mysql-server state=present
+
+- include: user.yml
+# - include: database.yml

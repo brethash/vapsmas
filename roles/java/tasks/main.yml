@@ -1,0 +1,18 @@
+---
+- stat: path=/usr/java
+  register: java
+
+- name: Install JDK7
+  apt: name=openjdk-7-jdk state=present
+  when: java.stat.exists == False
+
+- name: Create local Java library directory
+  file: path=/usr/java state=directory
+  when: java.stat.exists == False
+
+- name: Symlink Java library directory
+  file:
+    src=/usr/lib/jvm/java-7-openjdk-amd64
+    dest=/usr/java/default
+    state=link
+  when: java.stat.exists == False

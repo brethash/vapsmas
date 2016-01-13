@@ -1,0 +1,3 @@
+---
+git_public_key: "~/.ssh/id_rsa.pub"
+git_private_key: "~/.ssh/id_rsa"

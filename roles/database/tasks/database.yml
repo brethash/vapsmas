@@ -1,0 +1,8 @@
+---
+- name: Create new MySQL database
+  mysql_db: name={{ mysql_database_name }} state=present
+
+# - name: Import data
+#   copy: src=dump.sql.bz2 dest=/tmp
+#   mysql_db: name=my_db state=import target=/tmp/dump.sql.bz2
+#   when: dump.sql.bz2.exists == True

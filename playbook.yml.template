@@ -1,0 +1,22 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    document_root: /var/www/magento
+    modolue_root: "{{ document_root }}/.modman"
+    mysql_user: craig
+    mysql_password: 123456
+    git_repositories:
+      repo1:
+        url: https://github.com/infielddesign/magento-MagSolr.git
+        dest: "{{ module_root }}/apache-solr-for-magento"
+  pre_tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+  roles:
+    - webserver
+    - database
+    - java
+    - solr
+    - modman
+    - git

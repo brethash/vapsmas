@@ -1,0 +1,19 @@
+---
+- stat: path=/usr/local/bin/modman
+  register: modman
+
+- name: Download Modman
+  get_url: url=https://raw.github.com/colinmollenhour/modman/master/modman dest=/home/vagrant
+  when: modman.stat.exists == False
+
+- name: Make Modman Executable
+  file:
+    path: "/home/vagrant/modman"
+    mode: 0777
+    owner: vagrant
+    group: vagrant
+  when: modman.stat.exists == False
+
+- name: Move Modman to /usr/local/bin
+  command: "mv /home/vagrant/modman /usr/local/bin/modman"
+  when: modman.stat.exists == False
