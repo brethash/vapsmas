@@ -1,10 +1,10 @@
 ---
-- name: Install the Python MySQLB module
+- name: Install the Python MySQLdb module
   apt: name=python-mysqldb state=installed
   become: yes
   become_method: sudo
 
-- name: Remove Anonymous MySql users
+- name: Remove Anonymous MySQL users
   action: mysql_user name='' state='absent'
 
 - name: Create database user
