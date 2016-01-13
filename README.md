@@ -19,12 +19,6 @@ https://www.virtualbox.org/wiki/Downloads
 
 1. Duplicate playbook.yml.template and rename it to playbook.yml.
 
-* **OPTIONAL** If your ssh key is not in ~/.ssh/id_rsa, add the following line under the vars section in playbook.yml
-```
-git_public_key: "{path/to/your/public_key.pub}"
-git_private_key: "{path/to/your/private_key}"
-```
-
 2. Vagrant up! (you may have to enter your computer password a couple times during provisioning)
 
 ```
@@ -32,3 +26,9 @@ vagrant up
 ```
 
 3. Once provisioning is complete, you should be able to access the site at http://magento.local
+
+* **OPTIONAL** If your ssh key is not in ~/.ssh/id_rsa, add the following line under the vars section in playbook.yml
+```
+git_public_key: "{path/to/your/public_key.pub}"
+git_private_key: "{path/to/your/private_key}"
+```
