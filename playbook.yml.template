@@ -3,7 +3,7 @@
   sudo: true
   vars:
     document_root: /var/www/magento
-    modolue_root: "{{ document_root }}/.modman"
+    module_root: "{{ document_root }}/.modman"
     mysql_user: craig
     mysql_password: 123456
     git_repositories:
