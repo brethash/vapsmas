@@ -4,8 +4,6 @@
 **1.) Install Vagrant**
 
 ```
-#!bash
-
 https://www.vagrantup.com/downloads.html
 ```
 
@@ -13,8 +11,6 @@ https://www.vagrantup.com/downloads.html
 
 
 ```
-#!bash
-
 https://www.virtualbox.org/wiki/Downloads
 ```
 
@@ -25,8 +21,6 @@ https://www.virtualbox.org/wiki/Downloads
 
 **1.5) If your ssh key is not in ~/.ssh/id_rsa, add the following line under the vars section in playbook.yml**
 ```
-#!bash
-
 git_public_key: "{path/to/your/public_key.pub}"
 git_private_key: "{path/to/your/private_key}"
 ```
@@ -34,8 +28,6 @@ git_private_key: "{path/to/your/private_key}"
 **2.) Vagrant up! (you may have to enter your computer password a couple times during provisioning)**
 
 ```
-#!bash
-
 vagrant up
 ```
 
