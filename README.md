@@ -19,7 +19,7 @@ https://www.virtualbox.org/wiki/Downloads
 
 1. Duplicate playbook.yml.template and rename it to playbook.yml.
 
-1.5 **OPTIONAL** If your ssh key is not in ~/.ssh/id_rsa, add the following line under the vars section in playbook.yml
+* **OPTIONAL** If your ssh key is not in ~/.ssh/id_rsa, add the following line under the vars section in playbook.yml
 ```
 git_public_key: "{path/to/your/public_key.pub}"
 git_private_key: "{path/to/your/private_key}"
